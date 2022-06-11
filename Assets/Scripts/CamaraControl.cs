@@ -29,7 +29,7 @@ public class CamaraControl : MonoBehaviour
 
     public void Cam(){
         mouseX += rotSpeed * Input.GetAxis("Mouse X");
-        mouseY -= rotSpeed * Input.GetAxis("Mouse Y");
+        mouseY += rotSpeed * Input.GetAxis("Mouse Y");
         mouseY = Mathf.Clamp(mouseY,rotMin,rotMax);
         target.rotation = Quaternion.Euler(-mouseY,mouseX,0.0f);
         player.rotation = Quaternion.Euler(0.0f,mouseX,0.0f);
