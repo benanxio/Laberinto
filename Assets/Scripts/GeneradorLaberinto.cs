@@ -88,7 +88,15 @@ public class GeneradorLaberinto : MonoBehaviour
 
                     var newRoom = Instantiate(rooms[randomRoom].room, new Vector3(i * offset.x, 0, -j * offset.y), Quaternion.identity, transform).GetComponent<RoomBehaviour>();
                     newRoom.UpdateRoom(currentCell.status);
-                    newRoom.name += " " + i + "-" + j;
+                    if(i==0 &&  j==0){
+                        newRoom.name += " " + i + "-" + j + "INICIAL";
+                    }
+                    else if(i==2 && j==2){
+                        newRoom.name += " " + i + "-" + j + "FINAL";
+                    }
+                    else{
+                        newRoom.name += " " + i + "-" + j;
+                    }
 
                 }
             }
