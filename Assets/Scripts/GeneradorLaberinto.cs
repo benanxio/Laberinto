@@ -91,7 +91,7 @@ public class GeneradorLaberinto : MonoBehaviour
                     if(i==0 &&  j==0){
                         newRoom.name += " " + i + "-" + j + "INICIAL";
                     }
-                    else if(i==2 && j==2){
+                    else if(i==size.x-1 && j==size.y-1){
                         newRoom.name += " " + i + "-" + j + "FINAL";
                     }
                     else{

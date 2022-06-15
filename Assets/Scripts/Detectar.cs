@@ -10,19 +10,29 @@ public class Detectar : MonoBehaviour
 
     void Start()
     {
-        mask = LayerMask.GetMask("RaycastDetect");
+        mask = LayerMask.GetMask("RaycastObject");
     }
 
     void Update()
     {
-        RaycastHit hit;
 
+        
+        RaycastHit hit;
         if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward),out hit, distancia, mask)){
-            if(hit.collider.tag == "Puerta"){
+            if(hit.collider.tag != null){
+                //Debug.Log("AEA "+distancia);
                 if(Input.GetKeyDown(KeyCode.E)){
-                    hit.collider.transform.GetComponent<ObjetoInteractivo>().ActivarObjeto();
+                    LogicaPuerta puerta = hit.collider.transform.GetComponent<LogicaPuerta>();
+                    bool p = !puerta.doorOpen;
+
+                    puerta.doorOpen = p;
+
                 }
             }
         }
+    }
+
+    public void cambio(int valor){
+        distancia = valor;
     }
 }

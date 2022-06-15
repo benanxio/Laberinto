@@ -39,10 +39,12 @@ public class CamaraControl : MonoBehaviour
     {
         Cam();
         if(activeTP == false && Input.GetKeyDown(KeyCode.Tab)){
+            transform.GetComponent<Detectar>().cambio(5);
             activeTP = true;
             transform.position = posPP.position;
         }
         else if (activeTP && Input.GetKeyDown(KeyCode.Tab)){
+            transform.GetComponent<Detectar>().cambio(20);
             activeTP = false;
             transform.position = posTP.position;
             transform.LookAt(player);

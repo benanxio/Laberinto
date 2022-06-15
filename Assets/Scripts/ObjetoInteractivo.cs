@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ObjetoInteractivo : MonoBehaviour
 {
+    public GameObject objeto;
     public void ActivarObjeto(){
-        Destroy(gameObject);
+        Destroy(objeto);
     }
 }
