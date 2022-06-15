@@ -15,11 +15,6 @@ public class LogicaPuerta : MonoBehaviour
     [SerializeField]
     public GameObject contenedor;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         if(doorOpen){
@@ -32,6 +27,10 @@ public class LogicaPuerta : MonoBehaviour
             contenedor.transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation2, smooth * Time.deltaTime);
         }
 
+    }
+
+    public void ChangeDoorState(){
+        doorOpen = !doorOpen;
     }
 
     private void OnTriggerEnter(Collider other) {
