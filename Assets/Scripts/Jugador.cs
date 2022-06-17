@@ -19,8 +19,6 @@ public class Jugador : MonoBehaviour
         {
             transform.Translate(0, 0, velocidad * Time.deltaTime);
         anim.SetFloat("movimiento",0.5f);
-           
-
         }
         if (Input.GetKey(KeyCode.S))
         {
@@ -38,13 +36,13 @@ public class Jugador : MonoBehaviour
             anim.SetFloat("movimiento",2f);
         }
         if(Input.GetKey(KeyCode.E)){
-             anim.SetFloat("movimiento",1.5f);
+             anim.SetFloat("movimiento",3.0f);
         }
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
-             anim.SetFloat("movimiento",1.0f, 0.1f, Time.deltaTime);
-            transform.Translate(0, 0, velocidad + 0.00001f * Time.deltaTime);
+             anim.SetFloat("movimiento",1.1f);
+           // transform.Translate(0, 0, velocidad * Time.deltaTime);
 
         }
 
