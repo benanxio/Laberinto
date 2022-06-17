@@ -22,4 +22,7 @@ public class CargaEscena : MonoBehaviour
     public void play(){
         SceneManager.LoadScene("Inicio");
     }
+    public void salir(){
+        Application.Quit(); 
+    }
 }
