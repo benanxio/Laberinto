@@ -18,44 +18,40 @@ public class Jugador : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(0, 0, velocidad * Time.deltaTime);
-        anim.SetFloat("movimiento",0.5f);
+            anim.SetFloat("movimiento", 0.5f);
         }
         if (Input.GetKey(KeyCode.S))
         {
             transform.Translate(0, 0, -velocidad * Time.deltaTime);
-            anim.SetFloat("movimiento",2.5f);
+            anim.SetFloat("movimiento", 2.5f);
         }
         if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(-velocidad * Time.deltaTime, 0, 0);
-            anim.SetFloat("movimiento",1.5f);
+            anim.SetFloat("movimiento", 1.5f);
         }
         if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(velocidad * Time.deltaTime, 0, 0);
-            anim.SetFloat("movimiento",2f);
-        }
-        if(Input.GetKey(KeyCode.E)){
-             anim.SetFloat("movimiento",3.0f);
+            anim.SetFloat("movimiento", 2f);
         }
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W))
         {
-             anim.SetFloat("movimiento",1.1f);
-           // transform.Translate(0, 0, velocidad * Time.deltaTime);
+            anim.SetFloat("movimiento", 1.1f);
 
         }
-
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            if (velocidad <= 0.0f)
-            {
-                velocidad = 0.0f;
-            }
-            else
-            {
-                velocidad--;
-            }
+            velocidad += 3;
         }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            velocidad -= 3;
+        }
+    }
+    public void accion()
+    {
+        anim.SetFloat("movimiento", 3.0f);
     }
 }

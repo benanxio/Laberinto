@@ -1176,6 +1176,7 @@ MonoBehaviour:
   distancia: 3
   instrucciones: {fileID: 3491002515188286592, guid: 23b2026fd003c4c4ea16559cedc72309, type: 3}
   origen: {fileID: 5055835482107902819}
+  jugador: {fileID: 4537104819350229999}
 --- !u!114 &2579446369153385586
 MonoBehaviour:
   m_ObjectHideFlags: 0
