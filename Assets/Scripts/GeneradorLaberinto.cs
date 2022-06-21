@@ -37,6 +37,7 @@ public class GeneradorLaberinto : MonoBehaviour
     public int startPos = 0;
     public Rule[] rooms;
     public Vector2 offset;
+    public GameObject teletransportador;
     List<Cell> board;
 
     void Start()
@@ -85,14 +86,20 @@ public class GeneradorLaberinto : MonoBehaviour
                     newRoom.UpdateRoom(currentCell.status);
                     if (i == 0 && j == 0)
                     {
-                        newRoom.name += " " + i + "-" + j + "INICIAL";
+                        newRoom.name = "Room " + i + "-" + j + "INICIAL";
                     }
-                    else if (i == size.x - 1 && j == size.y - 1)
+                    if (i == size.x - 1 && j == size.y - 1)
                     {
-                        newRoom.name += " " + i + "-" + j + "FINAL";
+                        newRoom.name = "Room " + i + "-" + j + "FINAL";
+                        var x = newRoom.transform.position.x;
+                        var y = newRoom.transform.position.y;
+                        var z = newRoom.transform.position.z;
+                        var teleport = Instantiate(teletransportador,new Vector3(x,y+0.2f,z),Quaternion.Euler(90,0,0), newRoom.transform);
+                        teleport.name = "Teleport";
                     }
                     else
                     {
+                        
                         newRoom.name += " " + i + "-" + j;
                     }
                 }
