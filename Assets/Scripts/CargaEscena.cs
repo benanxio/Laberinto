@@ -5,16 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class CargaEscena : MonoBehaviour
 {
-    public void iniciar(){
+    public void iniciar()
+    {
         SceneManager.LoadScene("menu");
     }
-    public void play(){
+    public void play()
+    {
         SceneManager.LoadScene("Inicio");
     }
-    public void CargarEscenaP(string escena){
+    public void CargarEscenaP(string escena)
+    {
         SceneManager.LoadScene(escena);
-
-    public void salir(){
-        Application.Quit(); 
+    }
+    public void salir()
+    {
+        Application.Quit();
     }
 }
