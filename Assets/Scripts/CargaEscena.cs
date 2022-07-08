@@ -14,7 +14,9 @@ public class CargaEscena : MonoBehaviour
     public void CargarEscenaP(string escena){
         SceneManager.LoadScene(escena);
 
-    public void salir(){
+  
+}
+public void salir(){
         Application.Quit(); 
     }
 }
