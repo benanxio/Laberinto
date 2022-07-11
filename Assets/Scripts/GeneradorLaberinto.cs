@@ -33,10 +33,19 @@ public class GeneradorLaberinto : MonoBehaviour
 
     }
 
+    [System.Serializable]
+    public class SpecialRooms
+    {
+        public GameObject room;
+        public Vector2Int Size;
+    }
+
     public Vector2Int size;
     public int startPos = 0;
     public Rule[] rooms;
     public Vector2 offset;
+    [Header("Configuración de Rooms especiales")]
+    public SpecialRooms[] specialRooms = new SpecialRooms[2];
     public GameObject teletransportador;
     List<Cell> board;
 
@@ -82,24 +91,28 @@ public class GeneradorLaberinto : MonoBehaviour
                             randomRoom = 0;
                         }
                     }
-                    var newRoom = Instantiate(rooms[randomRoom].room, new Vector3(i * offset.x, 0, -j * offset.y), Quaternion.identity, transform).GetComponent<RoomBehaviour>();
-                    newRoom.UpdateRoom(currentCell.status);
+
                     if (i == 0 && j == 0)
                     {
+                        var newRoom = Instantiate(specialRooms[0].room, new Vector3(i * specialRooms[0].Size.x, 0, -j * specialRooms[0].Size.y), Quaternion.identity, transform).GetComponent<RoomBehaviour>();
+                        newRoom.UpdateRoom(currentCell.status);
                         newRoom.name = "Room " + i + "-" + j + "INICIAL";
                     }
-                    if (i == size.x - 1 && j == size.y - 1)
+                    else if (i == size.x - 1 && j == size.y - 1)
                     {
+                        var newRoom = Instantiate(specialRooms[1].room, new Vector3(i * specialRooms[1].Size.x, 0, -j * specialRooms[1].Size.y), Quaternion.identity, transform).GetComponent<RoomBehaviour>();
+                        newRoom.UpdateRoom(currentCell.status);
                         newRoom.name = "Room " + i + "-" + j + "FINAL";
                         var x = newRoom.transform.position.x;
                         var y = newRoom.transform.position.y;
                         var z = newRoom.transform.position.z;
-                        var teleport = Instantiate(teletransportador,new Vector3(x,y+0.2f,z),Quaternion.Euler(90,0,0), newRoom.transform);
+                        var teleport = Instantiate(teletransportador, new Vector3(x, y + 0.2f, z), Quaternion.Euler(90, 0, 0), newRoom.transform);
                         teleport.name = "Teleport";
                     }
                     else
                     {
-                        
+                        var newRoom = Instantiate(rooms[randomRoom].room, new Vector3(i * offset.x, 0, -j * offset.y), Quaternion.identity, transform).GetComponent<RoomBehaviour>();
+                        newRoom.UpdateRoom(currentCell.status);
                         newRoom.name += " " + i + "-" + j;
                     }
                 }

@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class CamaraControl : MonoBehaviour
 {
-    public bool activeTP;
-    public Transform posTP, posPP;
-    public float rotSpeed;
-    public float rotMin, rotMax;
-    float mouseX, mouseY;
-    public Transform target, player;
+
+    [SerializeField] private Transform objASeguir;
+    [SerializeField] private float velCamara = 120;
+    [SerializeField] private float sensibilidad = 150;
+
+    private float mouseX;
+    private float mouseY;
+    private float rotX = 0;
+    private float rotY = 0;
+
 
     void Start()
     {
@@ -17,27 +21,35 @@ public class CamaraControl : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    public void Cam(){
-        mouseX += rotSpeed * Input.GetAxis("Mouse X");
-        mouseY += rotSpeed * Input.GetAxis("Mouse Y");
-        mouseY = Mathf.Clamp(mouseY,rotMin,rotMax);
-        target.rotation = Quaternion.Euler(-mouseY,mouseX,0.0f);
-        player.rotation = Quaternion.Euler(0.0f,mouseX,0.0f);
-    }
+    void Update()
+    {
+        mouseX = Input.GetAxis("Mouse X");
+        mouseY = Input.GetAxis("Mouse Y");
 
+        rotY += mouseX * sensibilidad * Time.deltaTime;
+        rotX -= mouseY * sensibilidad * Time.deltaTime;
+
+        rotX = Mathf.Clamp(rotX, -60, 60);
+        transform.rotation = Quaternion.Euler(rotX, rotY, 0);
+
+        if (Input.GetKeyDown(KeyCode.LeftAlt))
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+        if (Input.GetKey(KeyCode.LeftAlt))
+        {
+            Cursor.visible = true;
+
+        }
+        if (Input.GetKeyUp(KeyCode.LeftAlt))
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+
+        }
+    }
     void LateUpdate()
     {
-        Cam();
-        if(activeTP == false && Input.GetKeyDown(KeyCode.Tab)){
-            //transform.GetComponent<Detectar>().cambio(5);
-            activeTP = true;
-            transform.position = posPP.position;
-        }
-        else if (activeTP && Input.GetKeyDown(KeyCode.Tab)){
-            //transform.GetComponent<Detectar>().cambio(20);
-            activeTP = false;
-            transform.position = posTP.position;
-            transform.LookAt(player);
-        }
+        transform.position = Vector3.MoveTowards(transform.position, objASeguir.position, Time.deltaTime * velCamara);
     }
 }
