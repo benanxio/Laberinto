@@ -449,15 +449,20 @@ MonoBehaviour:
   size: {x: 2, y: 2}
   startPos: 0
   rooms:
-  - room: {fileID: 8016065344376093204, guid: eb82cefbc6654cc4183207f1d08e6a89, type: 3}
+  - room: {fileID: 8016065344376093204, guid: a8fd54e644b0ce5458d885af73fd8789, type: 3}
     minPosition: {x: 0, y: 0}
     maxPosition: {x: 0, y: 0}
     obligatory: 1
-  - room: {fileID: 8016065344376093204, guid: eb82cefbc6654cc4183207f1d08e6a89, type: 3}
+  - room: {fileID: 8016065344376093204, guid: a8fd54e644b0ce5458d885af73fd8789, type: 3}
     minPosition: {x: 0, y: 0}
     maxPosition: {x: 0, y: 0}
     obligatory: 1
-  offset: {x: 15, y: 15}
+  offset: {x: 21, y: 21}
+  specialRooms:
+  - room: {fileID: 8016065344376093204, guid: a8fd54e644b0ce5458d885af73fd8789, type: 3}
+    Size: {x: 21, y: 21}
+  - room: {fileID: 8016065344376093204, guid: a8fd54e644b0ce5458d885af73fd8789, type: 3}
+    Size: {x: 21, y: 21}
   teletransportador: {fileID: 100008, guid: 342462ec135e67b4e9560296c1c7c97b, type: 3}
 --- !u!4 &1084628920
 Transform:

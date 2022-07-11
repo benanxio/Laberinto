@@ -22,7 +22,7 @@ public class Jugador : MonoBehaviour
     {
         anim = GetComponent<Animator>();
     }
-    void Update()
+    void FixedUpdate()
     {
 
         float horizontal = Input.GetAxis("Horizontal");
@@ -50,7 +50,7 @@ public class Jugador : MonoBehaviour
             transform.position = new Vector3(transform.position.x, 0, transform.position.z);
 
         }
-        
+
         anim.SetFloat("movimiento", 0, 0.1f, Time.deltaTime);
     }
 

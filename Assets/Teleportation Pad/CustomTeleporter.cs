@@ -9,6 +9,8 @@ public class CustomTeleporter : MonoBehaviour
     public float teleportTime = 3;
     //only allow specific tag object? if left empty, any object can teleport
     public string objectTag = "Tag del objeto";
+    //Nombre de escena
+    public string tEscena = "Nombre de escena";
     //one or more destination pads
     public Vector3[] destinationPad;
     //height offset
@@ -64,7 +66,7 @@ public class CustomTeleporter : MonoBehaviour
             curTeleportTime -= 1 * Time.deltaTime;
 			teleportChargingSound.volume += 0.01f;
 			var ps = particle.main;
-			ps.startSize = 3-(int)curTeleportTime;
+			ps.startSize = teleportTime-(int)curTeleportTime;
             //if the countdown reaches zero
             if (curTeleportTime <= 0)
             {
