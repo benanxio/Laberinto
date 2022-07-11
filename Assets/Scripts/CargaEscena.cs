@@ -11,7 +11,7 @@ public class CargaEscena : MonoBehaviour
     }
     public void play()
     {
-        SceneManager.LoadScene("Inicio");
+        SceneManager.LoadScene("Nivel1");
     }
     public void CargarEscenaP(string escena)
     {
