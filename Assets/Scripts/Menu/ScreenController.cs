@@ -53,10 +53,10 @@ public class ScreenController : MonoBehaviour
         }
         dropdownResolutions.AddOptions(resoltionOptions);
         dropdownResolutions.value = PlayerPrefs.GetInt("optionResolution",actuallyResolution);
-        //dropdownResolutions.RefreshShownValue();
+        dropdownResolutions.RefreshShownValue();
         dropdownFPS.AddOptions(FPSlist);
         dropdownFPS.value = PlayerPrefs.GetInt("optionFPS",actuallyFPS);
-        //dropdownFPS.RefreshShownValue();
+        dropdownFPS.RefreshShownValue();
 
     }
 

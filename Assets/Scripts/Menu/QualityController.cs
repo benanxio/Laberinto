@@ -18,8 +18,11 @@ public class QualityController : MonoBehaviour
         antiAlising = PlayerPrefs.GetInt("antiAlising", 1);
         vsync = PlayerPrefs.GetInt("VSync",1);
         dropdownQuality.value = quality;
+        dropdownQuality.RefreshShownValue();
         dropdownAntiAlising.value = antiAlising;
+        dropdownAntiAlising.RefreshShownValue();
         dropdownVSync.value = vsync;
+        dropdownVSync.RefreshShownValue();
         changeQuality();
         changeAntiAlising();
         changeVSync(vsync);
@@ -35,7 +38,7 @@ public class QualityController : MonoBehaviour
     {
         antiAlising = antiAlisingModes[dropdownAntiAlising.value];
         QualitySettings.antiAliasing = antiAlising;
-        PlayerPrefs.SetInt("antiAlising", antiAlising);
+        PlayerPrefs.SetInt("antiAlising", dropdownAntiAlising.value);
 
     }
     public void changeVSync(int value){

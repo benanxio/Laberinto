@@ -17,10 +17,4 @@ public class CargaEscena : MonoBehaviour
     {
         SceneManager.LoadScene(escena);
     }
-    
-    public void salir()
-    {
-        Application.Quit();
-
-    }
 }
