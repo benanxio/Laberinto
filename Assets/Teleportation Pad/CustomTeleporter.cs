@@ -74,7 +74,7 @@ public class CustomTeleporter : MonoBehaviour
                 curTeleportTime = teleportTime;
 
                 int chosenPad = Random.Range(0, destinationPad.Length);
-                transform.GetComponent<CargaEscena>().CargarEscenaP("Nivel2");
+                transform.GetComponent<CargaEscena>().CargarEscenaP(tEscena);
                 teleportSound.Play();
             }
         }

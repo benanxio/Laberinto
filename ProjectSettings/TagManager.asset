@@ -8,6 +8,9 @@ TagManager:
   - TriggerPuerta
   - Objeto
   - Info
+  - CanvaMenu
+  - Opciones
+  - CamaraContainer
   layers:
   - Default
   - TransparentFX

@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class CargaEscena : MonoBehaviour
 {
-    public void iniciar()
+    public void MainMenu()
     {
+        Destroy(OptionsController.options.gameObject);
         SceneManager.LoadScene("menu");
     }
     public void play()

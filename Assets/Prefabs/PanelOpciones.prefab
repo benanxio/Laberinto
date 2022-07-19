@@ -122,9 +122,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8535372610510578501}
-        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: cerrarOpciones
+      - m_Target: {fileID: 7042133947804780126}
+        m_TargetAssemblyTypeName: ScreenController, Assembly-CSharp
+        m_MethodName: Cerrar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3714,10 +3714,9 @@ GameObject:
   - component: {fileID: 7042133947804780120}
   - component: {fileID: 7042133947804780126}
   - component: {fileID: 7042133947804780125}
-  - component: {fileID: 8535372610510578501}
   m_Layer: 5
   m_Name: PanelOpciones
-  m_TagString: Untagged
+  m_TagString: Opciones
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3817,19 +3816,6 @@ MonoBehaviour:
   dropdownQuality: {fileID: 7042133947541692989}
   dropdownAntiAlising: {fileID: 7042133947913882095}
   dropdownVSync: {fileID: 7042133948444778840}
---- !u!114 &8535372610510578501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7042133947804780122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f987e8f2ddc323e4886c646ed89a3c5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panelOpciones: {fileID: 7042133947804780122}
 --- !u!1 &7042133947816536614
 GameObject:
   m_ObjectHideFlags: 0

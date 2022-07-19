@@ -57,7 +57,7 @@ public class ScreenController : MonoBehaviour
         dropdownFPS.AddOptions(FPSlist);
         dropdownFPS.value = PlayerPrefs.GetInt("optionFPS",actuallyFPS);
         dropdownFPS.RefreshShownValue();
-
+        ChangeFPS(actuallyFPS);
     }
 
     public void ChangeResolution(int option)
@@ -65,7 +65,6 @@ public class ScreenController : MonoBehaviour
         PlayerPrefs.SetInt("optionResolution", option);
         Resolution resolution = resolutions[resolutions.Length - 1 - option];
         if (option == 0){
-            
             Screen.SetResolution(resolution.width, resolution.height, FullScreenMode.FullScreenWindow);
         }
         else
@@ -79,5 +78,9 @@ public class ScreenController : MonoBehaviour
         PlayerPrefs.SetInt("optionFPS", option);
         Application.targetFrameRate = FPS[option];
         transform.GetComponent<QualityController>().changeVSync(0);
+    }
+
+    public void Cerrar(){
+        gameObject.SetActive(false);
     }
 }
