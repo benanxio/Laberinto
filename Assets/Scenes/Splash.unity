@@ -943,6 +943,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: addcd27478de27640a2043ea71a1bffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panelCarga: {fileID: 0}
+  sliderCarga: {fileID: 0}
+  info: {fileID: 0}
+  textc: {fileID: 0}
 --- !u!1 &1852546153
 GameObject:
   m_ObjectHideFlags: 0

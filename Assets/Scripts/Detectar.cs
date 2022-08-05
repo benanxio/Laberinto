@@ -30,6 +30,10 @@ public class Detectar : MonoBehaviour
             SelectedObject(hit.transform);
             if (hit.collider.tag == "Objeto")
             {
+                if (ultimoReconocido != null)
+                {
+                    instrucciones.SetActive(true);
+                }
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     hit.collider.transform.GetComponent<LogicaPuerta>().ChangeDoorState();
@@ -59,6 +63,7 @@ public class Detectar : MonoBehaviour
         if (ultimoReconocido)
         {
             ultimoReconocido = null;
+            instrucciones.SetActive(false);
         }
     }
     void OnGUI()
