@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class CustomTeleporter : MonoBehaviour
 {
     public bool delayedTeleport;
+    public bool destroyTeleport;
     //time it takes to teleport, if not instant
     public float teleportTime = 3;
     //only allow specific tag object? if left empty, any object can teleport
@@ -24,27 +25,27 @@ public class CustomTeleporter : MonoBehaviour
     public bool arrived;
     //gameobjects inside the pad
     private Transform subject;
-	//public AudioSource[] ct;
+    //public AudioSource[] ct;
     //add a sound component if you want the teleport playing a sound when teleporting
     public AudioSource teleportSound;
-	//Add a sound while the teleporter is charging
-	public AudioSource teleportChargingSound;
+    //Add a sound while the teleporter is charging
+    public AudioSource teleportChargingSound;
     //add a sound component for the teleport pad, vibrating for example, or music if you want :D
     //also to make it more apparent when the pad is off, stop this component playing with "teleportPadSound.Stop();"
     //PS the distance is set to 10 units, so you only hear it standing close, not from the other side of the map
     public AudioSource teleportPadSound;
     //simple enable/disable function in case you want the teleport not working at some point
     //without disabling the entire script, so receiving objects still works
-	public ParticleSystem particle;
+    public ParticleSystem particle;
     public bool teleportPadOn = true;
+    [SerializeField]
 
     void Start()
     {
         //Set the countdown ready to the time you chose
         curTeleportTime = teleportTime;
-		//ct = transform.GetComponents<AudioSource>();
+        //ct = transform.GetComponents<AudioSource>();
     }
-
 
     void Update()
     {
@@ -52,9 +53,11 @@ public class CustomTeleporter : MonoBehaviour
         if (inside)
         {
             //if that object hasnt just arrived from another pad, teleport it
-            if (!arrived && teleportPadOn)
+            if (!arrived && teleportPadOn){
                 Teleport();
+            }
         }
+
     }
 
     void Teleport()
@@ -64,19 +67,22 @@ public class CustomTeleporter : MonoBehaviour
         {
             //start the countdown
             curTeleportTime -= 1 * Time.deltaTime;
-			teleportChargingSound.volume += 0.01f;
-			var ps = particle.main;
-			ps.startSize = teleportTime-(int)curTeleportTime;
+            teleportChargingSound.volume += 0.01f;
+            var ps = particle.main;
+            ps.startSize = teleportTime - (int)curTeleportTime;
             //if the countdown reaches zero
             if (curTeleportTime <= 0)
             {
                 //reset the countdown
                 curTeleportTime = teleportTime;
 
-                int chosenPad = Random.Range(0, destinationPad.Length);
-                transform.GetComponent<CargaEscena>().CargarEscenaP("Nivel2");
+                //int chosenPad = Random.Range(0, destinationPad.Length);
                 teleportSound.Play();
+                OptionsController.options.EsceneCharge(tEscena);
+                teleportPadOn = false;
+                arrived = true;
             }
+
         }
     }
 
@@ -99,7 +105,7 @@ public class CustomTeleporter : MonoBehaviour
             //and check inside, ready for teleport
             inside = true;
         }
-		teleportChargingSound.Play();
+        teleportChargingSound.Play();
     }
 
     void OnTriggerExit(Collider trig)
@@ -137,9 +143,11 @@ public class CustomTeleporter : MonoBehaviour
             //remove the subject from the pads memory
             subject = null;
         }
-		teleportChargingSound.Stop();
-		teleportChargingSound.volume = 0.1f;
-		var ps = particle.main;
-		ps.startSize = 3-(int)curTeleportTime;
+        arrived = false;
+        teleportChargingSound.Stop();
+        teleportChargingSound.volume = 0.1f;
+        var ps = particle.main;
+        ps.startSize = 3 - (int)curTeleportTime;
+        teleportPadOn = true;
     }
 }

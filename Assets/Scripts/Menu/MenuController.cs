@@ -5,17 +5,12 @@ using UnityEngine;
 public class MenuController : MonoBehaviour
 {
     [SerializeField] GameObject panelOpciones;
-
-    public void abrirOpciones(){
-        panelOpciones.SetActive(true);
-    }
-    public void cerrarOpciones(){
-        panelOpciones.SetActive(false);
-    }
-
     public void salir()
     {
         Application.Quit();
 
+    }
+    public void mostraropciones(){
+        panelOpciones.SetActive(true);
     }
 }

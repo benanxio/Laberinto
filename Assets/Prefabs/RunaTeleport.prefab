@@ -19208,7 +19208,6 @@ GameObject:
   - component: {fileID: 611849360333947425}
   - component: {fileID: 6939954994060461361}
   - component: {fileID: 2101391036203637245}
-  - component: {fileID: 1340736839266394923}
   m_Layer: 0
   m_Name: RunaTeleport
   m_TagString: Untagged
@@ -23927,8 +23926,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delayedTeleport: 1
+  destroyTeleport: 1
   teleportTime: 3
   objectTag: Player
+  tEscena: Nombre de escena
   destinationPad:
   - {x: 0, y: 0, z: 0}
   teleportationHeightOffset: 0
@@ -24240,18 +24241,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: -0.5}
---- !u!114 &1340736839266394923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: addcd27478de27640a2043ea71a1bffe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6040749399894849638
 GameObject:
   m_ObjectHideFlags: 0
