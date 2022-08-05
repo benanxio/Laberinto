@@ -10,7 +10,7 @@ TagManager:
   - Info
   - CanvaMenu
   - Opciones
-  - CamaraContainer
+  - PanelCarga
   layers:
   - Default
   - TransparentFX

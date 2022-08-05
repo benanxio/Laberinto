@@ -41,7 +41,7 @@ public class OptionsController : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.LeftAlt) && activarPausa)
         {
-            bloquarCursor();
+            bloquearCursor();
         }
     }
 
@@ -70,9 +70,14 @@ public class OptionsController : MonoBehaviour
         Cursor.lockState = CursorLockMode.None; 
         Cursor.visible = true;
     }
-    void bloquarCursor()
+    void bloquearCursor()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
+    public void EsceneCharge(string escena){
+        OptionsController.options.GetComponent<CargaEscena>().CargarEscenaP(escena);
+    }
+
+
 }
