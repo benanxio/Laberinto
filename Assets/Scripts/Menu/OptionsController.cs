@@ -18,10 +18,8 @@ public class OptionsController : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            Autodestruccion();
         }
-        //panelOpciones = GameObject.FindGameObjectWithTag("Opciones");
-        //panelPausa = GameObject.FindGameObjectWithTag("Pausa");
     }
     void Start()
     {
@@ -77,6 +75,10 @@ public class OptionsController : MonoBehaviour
     }
     public void EsceneCharge(string escena){
         OptionsController.options.GetComponent<CargaEscena>().CargarEscenaP(escena);
+    }
+    public void Autodestruccion(){
+        Time.timeScale = 1;
+        Destroy(gameObject);
     }
 
 

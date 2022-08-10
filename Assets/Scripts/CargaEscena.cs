@@ -12,7 +12,8 @@ public class CargaEscena : MonoBehaviour
     [SerializeField] TMP_Text textc;
     public void MainMenu()
     {
-        Destroy(OptionsController.options.gameObject);
+        OptionsController.options.Autodestruccion();
+        
         SceneManager.LoadScene("menu");
     }
     public void play()

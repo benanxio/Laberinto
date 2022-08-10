@@ -14,3 +14,4 @@ public class MenuController : MonoBehaviour
         panelOpciones.SetActive(true);
     }
 }
+6
